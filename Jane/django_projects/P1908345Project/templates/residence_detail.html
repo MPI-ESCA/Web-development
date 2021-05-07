@@ -1,0 +1,21 @@
+<!--templates/residence_detail.html-->
+{% extends 'base.html' %}
+{% block content %}
+<div>
+    <h2>{{residence.title}}</h2>
+    <p>Estate: {{residence.estate}}</p>
+    <p>Gross Area: {{residence.gross_area}}</p>
+    <p>Rent:$ {{residence.rent}}</p>
+    <p>Bedrooms: {{residence.bedrooms}}</p>
+    <p>Expected Tenants: {{residence.expected_tenants}}</p>
+    <p>Created: {{residence.created}}</p>
+    <p>Updated: {{residence.updated}}</p>
+</div>
+<div>
+    {% if request.user.is_authenticated %}
+    <a href="{% url 'residence_edit' residence.pk %}">Edit</a>
+    <a href="{% url 'residence_delete' residence.pk %}">Delete</a>
+    {% endif %}
+</div>
+
+{% endblock content %}

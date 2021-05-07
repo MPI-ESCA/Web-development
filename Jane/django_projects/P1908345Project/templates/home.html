@@ -1,0 +1,12 @@
+<!--templates/home.html-->
+{% extends 'base.html' %}
+{% block content %}
+{% for residence in object_list %}
+<div>
+    <h2><a href="{% url 'residence_detail' residence.pk %}">{{residence.title}}</a></h2>
+    <p>Estate: {{residence.estate}}</p>
+    <p>Gross Area: {{residence.gross_area}}</p>
+    <p>Rent:$ {{residence.rent}}</p>
+</div>
+{% endfor %}
+{% endblock %}
